@@ -47,7 +47,7 @@
                 filled
                 chips
                 color="blue-grey lighten-2"
-                label="Select"
+                label="Escolha a(s) tecnologia(s)"
                 item-text="name"
                 item-value="name"
                 multiple
@@ -76,6 +76,17 @@
           </v-row>
         </v-container>
       </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="error" outlined>
+          <v-icon left>mdi-close</v-icon>
+          Cancelar
+        </v-btn>
+        <v-btn color="success" outlined>
+          <v-icon left>mdi-content-save</v-icon>
+          Salvar
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
