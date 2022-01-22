@@ -99,11 +99,15 @@ export default {
       items: [
         { title: "Feed", icon: "mdi-home", link: "/Feed" },
         { divider: true },
-        { heading: "Meus Projetos" },
         {
           title: "Projetos criados",
-          icon: "mdi-home",
+          icon: "mdi-lightbulb-on-outline",
           link: "/my-projects",
+        },
+        {
+          title: "Projetos que colaboro",
+          icon: "mdi-account-group",
+          link: "/colaborate",
         },
         {
           title: "Library",
