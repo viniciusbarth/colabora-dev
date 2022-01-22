@@ -21,8 +21,8 @@
 
 <script>
 import mock from "./mock";
-import Post from "../../components/Post/Post";
-import newProject from "../../components/new-project/new-project";
+import Post from "./Post/Post";
+import newProject from "./new-project/new-project.vue";
 
 export default {
   name: "Feed",
