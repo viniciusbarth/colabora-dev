@@ -1,10 +1,12 @@
 <template>
   <v-container fluid>
-    <div >
+    <div>
       <v-row no-gutters class="d-flex justify-space-between mt-10 mb-6">
         <h1 class="page-title">Feed de projetos</h1>
-      <v-spacer></v-spacer>
-      <v-btn color="primary" @click="openNewProject"><v-icon>mdi-plus</v-icon>Criar proposta</v-btn>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" @click="openNewProject"
+          ><v-icon>mdi-plus</v-icon>Criar proposta</v-btn
+        >
       </v-row>
 
       <v-row>
@@ -13,33 +15,36 @@
         </v-col>
       </v-row>
     </div>
-    <new-project v-model="isNewProject"></new-project>
+    <new-project v-model="isNewProject" @close="closeModal"></new-project>
   </v-container>
 </template>
 
 <script>
 import mock from "./mock";
-import Post from '../../components/Post/Post'
-import newProject from '../../components/new-project/new-project'
+import Post from "../../components/Post/Post";
+import newProject from "../../components/new-project/new-project";
 
 export default {
   name: "Feed",
   components: {
     Post,
-    newProject
+    newProject,
   },
   data() {
     return {
       mock,
-      isNewProject: false
+      isNewProject: false,
     };
   },
   methods: {
     openNewProject() {
-      this.isNewProject = true
-    }
+      this.isNewProject = true;
+    },
+    closeModal() {
+      this.isNewProject = false;
+    },
   },
 };
 </script>
 
-<style src="./Feed.scss" lang="scss"/>
+<style src="./Feed.scss" lang="scss" />

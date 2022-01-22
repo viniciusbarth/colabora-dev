@@ -1,14 +1,10 @@
 <template>
-  <v-dialog
-    :value="value"
-    persistent
-    content-class="my-custom-dialog"
-  >
+  <v-dialog :value="value" persistent content-class="my-custom-dialog">
     <v-card>
       <v-toolbar dark color="primary">
         <v-toolbar-title>Novo projeto</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon dark @click="dialog = false">
+        <v-btn icon dark @click="closeModal">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-toolbar>
@@ -42,7 +38,6 @@
             <v-col cols="12">
               <v-autocomplete
                 v-model="friends"
-                :disabled="isUpdating"
                 :items="people"
                 filled
                 chips
@@ -70,7 +65,6 @@
             <v-textarea
               counter
               label="Breve descrição do seu projeto"
-              :rules="textAreaRules"
               rows="3"
             ></v-textarea>
           </v-row>
@@ -78,7 +72,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="error" outlined>
+        <v-btn color="error" outlined @click="closeModal">
           <v-icon left>mdi-close</v-icon>
           Cancelar
         </v-btn>
@@ -96,18 +90,24 @@ export default {
     return {
       maxMembers: 1,
       radioGroup: 1,
-      stageProject: ['Início','Em andamento', 'Reta final'],
+      dialog: false,
+      friends: null,
+      stageProject: ["Início", "Em andamento", "Reta final"],
       people: [{ name: "Forex" }, { name: "Javascript" }, { name: "Java" }],
       numberRules: [
         (v) => v > 0 || "O valor não pode ser menor ou igual a zero",
       ],
-      textAreaRules: [(v) => v.length <= 25 || "Max 25 characters"],
     };
   },
   props: {
     value: {
       type: Boolean,
       default: () => false,
+    },
+  },
+  methods: {
+    closeModal() {
+      this.$emit("close");
     },
   },
 };
