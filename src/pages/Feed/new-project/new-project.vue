@@ -1,5 +1,5 @@
 <template>
-  <v-dialog :value="value" persistent content-class="my-custom-dialog">
+  <v-dialog width="1000" :value="value" persistent>
     <v-card>
       <v-toolbar dark color="primary">
         <v-toolbar-title>Novo projeto</v-toolbar-title>
