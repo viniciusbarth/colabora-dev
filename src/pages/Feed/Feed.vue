@@ -5,13 +5,13 @@
         <h1 class="page-title">Feed de projetos</h1>
         <v-spacer></v-spacer>
         <v-btn color="primary" @click="openNewProject"
-          ><v-icon>mdi-plus</v-icon>Criar proposta</v-btn
+          ><v-icon>mdi-plus</v-icon>Criar projeto</v-btn
         >
       </v-row>
 
       <v-row>
         <v-col cols="12" v-for="(post, index) in mock.posts" :key="index">
-          <Post :post="post"></Post>
+          <Post :post="post" @click="(post) => openDetails(post)" />
         </v-col>
       </v-row>
     </div>
@@ -42,6 +42,9 @@ export default {
     },
     closeModal() {
       this.isNewProject = false;
+    },
+    openDetails() {
+      this.$router.push({ name: "details" });
     },
   },
 };

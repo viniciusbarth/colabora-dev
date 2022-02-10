@@ -13,7 +13,7 @@
           <v-list-item-title>{{ item.text }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <p>teste</p>
+          <slot name="action" />
         </v-list-item-action>
       </v-list-item>
     </v-list-item-group>
@@ -24,13 +24,13 @@ export default {
   data() {
     return {
       selectedItem: 0,
-      items: [
-        //TODO step será as etapas em que os projetos se encontram 0 = em andamento, 1 = finalizado, 2 = pausado
-        { text: "Projeto tech blog", step: 0 },
-        { text: "Projeto software para automóveis ", step: 1 },
-        { text: "software para a área pet", step: 2 },
-      ],
     };
+  },
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
   },
   computed: {},
   methods: {
